@@ -12,12 +12,12 @@ import com.team5.projekti.domain.Radio;
 import com.team5.projekti.domain.RadioRepository;
 
 @RestController
-public class QuizzController {
+public class QuizController {
 	
 	@Autowired
 	private RadioRepository rqRepository;
 	
-	
+	// Rest-rajapinta yksittäiselle Radio-kysymykselle
 	@RequestMapping(value="/radio/{id}", method=RequestMethod.GET)
 	public Optional<Radio> findRadioQuestion(@PathVariable Long id) {
 		return rqRepository.findById(id);
