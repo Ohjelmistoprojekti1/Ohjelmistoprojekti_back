@@ -1,9 +1,13 @@
 package com.team5.projekti.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Radio {
@@ -12,6 +16,9 @@ public class Radio {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String question;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+	private List<Vastaus> answers;
 	
 	public Radio() {
 		this.question = null;
@@ -33,6 +40,14 @@ public class Radio {
 	}
 	public void setQuestion(String question) {
 		this.question = question;
+	}
+	
+	public List<Vastaus> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Vastaus> answers) {
+		this.answers = answers;
 	}
 	
 	@Override
