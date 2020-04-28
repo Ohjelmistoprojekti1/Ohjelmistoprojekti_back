@@ -15,19 +15,19 @@ public class Vastaus {
 	private Long id;
 	private String answer;
 	
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name = "id")
-	private Radio question;
+	private Radio question;*/
 	
 	public Vastaus() {
 		this.answer = null;
-		this.question= null;
+		/*this.question= null;*/
 	}
 	
-	public Vastaus(String answer, Radio question) {
+	public Vastaus(String answer/*, Radio question*/) {
 		super();
 		this.answer = answer;
-		this.question= question;
+		/*this.question= question;*/
 	}
 
 	public Long getId() {
@@ -46,17 +46,17 @@ public class Vastaus {
 		this.answer = answer;
 	}
 
-	public Kysymys getQuestion() {
+	/*public Kysymys getQuestion() {
 		return question;
 	}
 
 	public void setQuestion(Kysymys question) {
 		this.question = question;
-	}
+	}*/
 
 	@Override
 	public String toString() {
-		return "Vastaus [id=" + id + ", answer=" + answer + ", question=" + question + "]";
+		return "Vastaus [id=" + id + ", answer=" + answer + "]";
 	}
 	
 	
