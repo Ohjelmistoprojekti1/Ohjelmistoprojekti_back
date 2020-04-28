@@ -22,11 +22,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-							
-				.antMatchers("//**", "/deleteradio/**", "/add", "/answers").hasRole("ADMIN") //Tarvitsee adminin kyseisiin URL:hin hasRole
-				.antMatchers("/").permitAll() //Kuka vain pääsee, koska permitAll() 
+				.antMatchers("/deleteradio/**", "/add", "/answers").hasRole("ADMIN") //Tarvitsee adminin kyseisiin URL:hin hasRole
 				.anyRequest().authenticated()
-				.and()
+				.and()			
+				// .antMatchers("//**", "/deleteradio/**", "/add", "/answers").hasRole("ADMIN") //Tarvitsee adminin kyseisiin URL:hin hasRole
+				// .antMatchers("/").permitAll() //Kuka vain pääsee, koska permitAll() 
+				// .anyRequest().authenticated()
+				// .and()
 			.formLogin()
 				.loginPage("/login")
 				.defaultSuccessUrl("/index")
