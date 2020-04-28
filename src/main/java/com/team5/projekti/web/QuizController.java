@@ -28,7 +28,7 @@ public class QuizController {
 		return "login";
 	}
 	
-	@RequestMapping(value= "/index", "/")
+	@RequestMapping(value= {"/index", "/"})
 	public String index() {
 		return "index";
 	}
