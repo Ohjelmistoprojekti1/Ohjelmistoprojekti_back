@@ -20,6 +20,9 @@ public class QuizController {
 	@Autowired
 	private RadioRepository rqRepository;
 	
+	@Autowired
+	private VastausRepository aRepository;
+	
 	@RequestMapping("/login")
 	public String login(){
 		return "login";
@@ -64,4 +67,12 @@ public class QuizController {
     		rqRepository.deleteById(Id);
         	return "redirect:../allQuestions";
    	 }  
+	
+	//Rest-rajapinta kaikille vastauksille
+	//Vain Admin
+	@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value="/answers", method = RequestMethod.GET)
+	public @ResponseBody List<Vastaus> findAllAnswers() {	
+	     return (List<Vastaus>) aRepository.findAll();
+	 }
 }
