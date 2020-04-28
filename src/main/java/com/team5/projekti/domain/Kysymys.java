@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Radio {
+public class Kysymys {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,11 +20,11 @@ public class Radio {
 	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
 	private List<Vastaus> answers;*/
 	
-	public Radio() {
+	public Kysymys() {
 		this.question = null;
 	}
 	
-	public Radio(String question) {
+	public Kysymys(String question) {
 		super();
 		this.question = question;
 	}

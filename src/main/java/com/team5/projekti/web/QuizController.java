@@ -18,7 +18,7 @@ import com.team5.projekti.domain.*;
 public class QuizController {
 	
 	@Autowired
-	private RadioRepository rqRepository;
+	private KysymysRepository rqRepository;
 	
 	@Autowired
 	private VastausRepository aRepository;
@@ -35,28 +35,28 @@ public class QuizController {
 	
 	// Rest-rajapinta yksittäiselle Radio-kysymykselle
 	@RequestMapping(value="/radio/{id}", method=RequestMethod.GET)
-	public @ResponseBody Optional<Radio> findRadioQuestion(@PathVariable Long id) {
+	public @ResponseBody Optional<Kysymys> findRadioQuestion(@PathVariable Long id) {
 		return rqRepository.findById(id);
 	}
 	
 	// Rest-rajapinta kaikille Radio-kysymyksille
 	@RequestMapping(value="/radios", method = RequestMethod.GET)
-    public @ResponseBody List<Radio> findAllRadioQuestions() {	
-        return (List<Radio>) rqRepository.findAll();
+    public @ResponseBody List<Kysymys> findAllRadioQuestions() {	
+        return (List<Kysymys>) rqRepository.findAll();
     }
 	
 	// Add new radio question
     	 @RequestMapping(value = "/addradio")
     	 public String addStudent(Model model){
-    		model.addAttribute("radio", new Radio());
+    		model.addAttribute("radio", new Kysymys());
     		model.addAttribute("radioQuestions", rqRepository.findAll());
         	return "question";
     	 }     
     
     	// Save new radio question
     	@RequestMapping(value = "/saveradio", method = RequestMethod.POST)
-    	 public String save(Radio radio){
-        	rqRepository.save(radio);
+    	 public String save(Kysymys kysymys){
+        	rqRepository.save(kysymys);
         	return "redirect:allQuestions";
     	 }    
 
