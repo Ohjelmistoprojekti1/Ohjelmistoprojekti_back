@@ -23,12 +23,12 @@ public class QuizController {
 	@Autowired
 	private VastausRepository aRepository;
 	
-	@RequestMapping("/login")
+	@RequestMapping(value = {"/login", "/"})
 	public String login(){
 		return "login";
 	}
 	
-	@RequestMapping(value= {"/", "/index"})
+	@RequestMapping(value= "/index")
 	public String index() {
 		return "index";
 	}
