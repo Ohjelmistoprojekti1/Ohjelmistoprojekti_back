@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 							
-				.antMatchers("//**", "/deleteradio/**", "/add").hasRole("ADMIN") //Tarvitsee adminin kyseisiin URL:hin hasRole
+				.antMatchers("//**", "/deleteradio/**", "/add", "/answers").hasRole("ADMIN") //Tarvitsee adminin kyseisiin URL:hin hasRole
 				.antMatchers("/").permitAll() //Kuka vain pääsee, koska permitAll() 
 				.anyRequest().authenticated()
 				.and()
