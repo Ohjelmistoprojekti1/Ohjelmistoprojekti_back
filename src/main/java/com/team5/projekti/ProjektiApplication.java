@@ -24,15 +24,15 @@ public class ProjektiApplication {
 	
 	// Vanhojen esimerkkikysymysten poisto ja uusien lisääminen tietokantaan
 	@Bean
-	public CommandLineRunner questionDemo(RadioRepository rqRepository, KayttajaRepository krepository) {
+	public CommandLineRunner questionDemo(KysymysRepository rqRepository, KayttajaRepository krepository) {
 		return (args) -> {
 			
 			log.info("delete old test data");
 			rqRepository.deleteAll();
 			log.info("save demo radio questions to db");
-			rqRepository.save(new Radio("Mitä kuuluu?"));
-			rqRepository.save(new Radio("Miten menee?"));
-			rqRepository.save(new Radio("Moi?"));
+			rqRepository.save(new Kysymys("Mitä kuuluu?"));
+			rqRepository.save(new Kysymys("Miten menee?"));
+			rqRepository.save(new Kysymys("Moi?"));
 			
 			//Salasanat voi hashata BCryptillä ja alempana on 2 esimerkkiä hashatuista salasanoista. Molemmat ovat "salasana123"
 			//$2y$12$567/3N/tvuxIR4BKL4dcIeNnL.nB/v0YCP6H5OFKayOiJ/NRH70UW
