@@ -17,8 +17,8 @@ public class Radio {
 	private Long id;
 	private String question;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
-	private List<Vastaus> answers;
+	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+	private List<Vastaus> answers;*/
 	
 	public Radio() {
 		this.question = null;
@@ -42,13 +42,13 @@ public class Radio {
 		this.question = question;
 	}
 	
-	public List<Vastaus> getAnswers() {
+	/*public List<Vastaus> getAnswers() {
 		return answers;
 	}
 
 	public void setAnswers(List<Vastaus> answers) {
 		this.answers = answers;
-	}
+	}*/
 	
 	@Override
 	public String toString() {
