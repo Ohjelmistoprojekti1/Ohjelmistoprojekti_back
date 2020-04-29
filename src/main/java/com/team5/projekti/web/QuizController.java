@@ -46,14 +46,20 @@ public class QuizController {
     }
 	
 	// New radio question
-	//@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
     	@RequestMapping(value = "/kysymys", method = RequestMethod.POST)
     	 Kysymys newKysymys(@RequestBody Kysymys newKysymys){
         	return rqRepository.save(newKysymys);
-    	 }    
+    	 } 
+	
+	// save answer
+    	@RequestMapping(value = "/vastaus", method = RequestMethod.POST)
+    	 Vastaus saveVastaus(@RequestBody Vastaus vastaus){
+        	return aRepository.save(vastaus);
+    	 } 
     	
     	// Update radio
-	//@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
     	@RequestMapping(value = "/kysymys/{id}", method = RequestMethod.PUT)
     	  Kysymys replaceKysymys(@RequestBody Kysymys newKysymys, @PathVariable Long id) {
 
@@ -69,7 +75,7 @@ public class QuizController {
     	  }
     	
    	// Delete radio question
-    	 //@PreAuthorize("hasAuthority('ADMIN')")
+    	 @PreAuthorize("hasAuthority('ADMIN')")
     	 @RequestMapping(value = "/kysymys/{id}", method = RequestMethod.DELETE)
     	 void deleteKysymys(@PathVariable("id") Long Id) {
     		rqRepository.deleteById(Id);
@@ -78,7 +84,7 @@ public class QuizController {
 	
 	//Rest-rajapinta kaikille vastauksille
 	//Vain Admin
-	//@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/answers", method = RequestMethod.GET)
 	public @ResponseBody List<Vastaus> findAllAnswers() {	
 	     return (List<Vastaus>) aRepository.findAll();
