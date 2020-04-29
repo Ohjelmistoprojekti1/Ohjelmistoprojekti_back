@@ -69,7 +69,7 @@ public class QuizController {
     	  }
     	
    	// Delete radio question
-    	 @PreAuthorize("hasAuthority('ADMIN')")
+    	 //@PreAuthorize("hasAuthority('ADMIN')")
     	 @RequestMapping(value = "/kysymys/{id}", method = RequestMethod.DELETE)
     	 void deleteKysymys(@PathVariable("id") Long Id) {
     		rqRepository.deleteById(Id);
@@ -78,7 +78,7 @@ public class QuizController {
 	
 	//Rest-rajapinta kaikille vastauksille
 	//Vain Admin
-	@PreAuthorize("hasAuthority('ADMIN')")
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/answers", method = RequestMethod.GET)
 	public @ResponseBody List<Vastaus> findAllAnswers() {	
 	     return (List<Vastaus>) aRepository.findAll();
