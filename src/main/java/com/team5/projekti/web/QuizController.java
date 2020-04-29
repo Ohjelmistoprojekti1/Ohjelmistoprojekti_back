@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,39 +34,47 @@ public class QuizController {
 	}
 	
 	// Rest-rajapinta yksittäiselle Radio-kysymykselle
-	@RequestMapping(value="/radio/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/kysymys/{id}", method=RequestMethod.GET)
 	public @ResponseBody Optional<Kysymys> findRadioQuestion(@PathVariable Long id) {
 		return rqRepository.findById(id);
 	}
 	
 	// Rest-rajapinta kaikille Radio-kysymyksille
-	@RequestMapping(value="/radios", method = RequestMethod.GET)
+	@RequestMapping(value="/kysymys", method = RequestMethod.GET)
     public @ResponseBody List<Kysymys> findAllRadioQuestions() {	
         return (List<Kysymys>) rqRepository.findAll();
     }
 	
-	// Add new radio question
-    	 @RequestMapping(value = "/addradio")
-    	 public String addStudent(Model model){
-    		model.addAttribute("radio", new Kysymys());
-    		model.addAttribute("radioQuestions", rqRepository.findAll());
-        	return "question";
-    	 }     
-    
-    	// Save new radio question
-    	@RequestMapping(value = "/saveradio", method = RequestMethod.POST)
-    	 public String save(Kysymys kysymys){
-        	rqRepository.save(kysymys);
-        	return "redirect:allQuestions";
+	// New radio question
+	@PreAuthorize("hasAuthority('ADMIN')")
+    	@RequestMapping(value = "/kysymys", method = RequestMethod.POST)
+    	 Kysymys newKysymys(@RequestBody Kysymys newKysymys){
+        	return rqRepository.save(newKysymys);
     	 }    
+    	
+    	// Update radio
+	@PreAuthorize("hasAuthority('ADMIN')")
+    	@RequestMapping(value = "/kysymys/{id}", method = RequestMethod.PUT)
+    	  Kysymys replaceKysymys(@RequestBody Kysymys newKysymys, @PathVariable Long id) {
 
+    	    return rqRepository.findById(id)
+    	      .map(kysymys -> {
+    	        kysymys.setQuestion(newKysymys.getQuestion());
+    	        return rqRepository.save(kysymys);
+    	      })
+    	      .orElseGet(() -> {
+    	        newKysymys.setId(id);
+    	        return rqRepository.save(newKysymys);
+    	      });
+    	  }
+    	
    	// Delete radio question
     	 @PreAuthorize("hasAuthority('ADMIN')")
-    	 @RequestMapping(value = "/deleteradio/{id}", method = RequestMethod.GET)
-    	 public String deleteRadio(@PathVariable("id") Long Id, Model model) {
+    	 @RequestMapping(value = "/kysymys/{id}", method = RequestMethod.DELETE)
+    	 void deleteKysymys(@PathVariable("id") Long Id) {
     		rqRepository.deleteById(Id);
-        	return "redirect:../allQuestions";
    	 }  
+	
 	
 	//Rest-rajapinta kaikille vastauksille
 	//Vain Admin
