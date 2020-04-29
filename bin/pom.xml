@@ -8,11 +8,11 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.juho</groupId>
-	<artifactId>testi</artifactId>
+	<groupId>com.team5</groupId>
+	<artifactId>projekti</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>testi</name>
-	<description>Demo project for Spring Boot</description>
+	<name>projekti</name>
+	<description>Ohjelmistoprojekti 1</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -39,17 +39,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>

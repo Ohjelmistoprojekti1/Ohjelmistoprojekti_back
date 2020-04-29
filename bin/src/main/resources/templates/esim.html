@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Esim</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Esim</h1>
+	<div class="col-md-4" style="padding:20px 0">
+	</div>
+		<table class="table table-stripped">
+			<tr>
+				<th>Radio</th>
+				
+			</tr>
+			<tr th:each = "suoritus : ${suoritukset}">
+				<td th:text="${radio.question}"/> 
+			</tr>
+		</table>
+			
+</body>
+</html>
