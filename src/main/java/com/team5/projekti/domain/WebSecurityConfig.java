@@ -22,7 +22,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.antMatchers("/deleteradio/**", "/add", "/answers").hasAuthority("ADMIN") //Tarvitsee adminin kyseisiin URL:hin hasRole
+				//.antMatchers("/deleteradio/**", "/add", "/answers").hasAuthority("ADMIN")//Tarvitsee adminin kyseisiin URL:hin hasRole
+				
+				.antMatchers("/deleteradio/**", "/add", "/answers").permitAll()
 				.anyRequest().authenticated()
 				.and()			
 				// .antMatchers("//**", "/deleteradio/**", "/add", "/answers").hasRole("ADMIN") //Tarvitsee adminin kyseisiin URL:hin hasRole
