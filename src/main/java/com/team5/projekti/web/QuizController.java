@@ -46,14 +46,14 @@ public class QuizController {
     }
 	
 	// New radio question
-	@PreAuthorize("hasAuthority('ADMIN')")
+	//@PreAuthorize("hasAuthority('ADMIN')")
     	@RequestMapping(value = "/kysymys", method = RequestMethod.POST)
     	 Kysymys newKysymys(@RequestBody Kysymys newKysymys){
         	return rqRepository.save(newKysymys);
     	 }    
     	
     	// Update radio
-	@PreAuthorize("hasAuthority('ADMIN')")
+	//@PreAuthorize("hasAuthority('ADMIN')")
     	@RequestMapping(value = "/kysymys/{id}", method = RequestMethod.PUT)
     	  Kysymys replaceKysymys(@RequestBody Kysymys newKysymys, @PathVariable Long id) {
 
