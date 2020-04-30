@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				//.antMatchers("/deleteradio/**", "/add", "/answers").hasAuthority("ADMIN")//Tarvitsee adminin kyseisiin URL:hin hasRole
-				
+				.antMatchers(HttpMethod.POST, "/vastaus").permitAll()
 				.antMatchers("/deleteradio/**", "/add", "/answers", "/kysymys/**", "/vastaus").permitAll()
 				.anyRequest().authenticated()
 				.and()			
