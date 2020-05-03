@@ -96,5 +96,5 @@ public class QuizController {
 	public @ResponseBody List<Vastaus> findAllAnswers() {	
 	     return (List<Vastaus>) aRepository.findAll();
 	 }
-	 }
+	 
 }
