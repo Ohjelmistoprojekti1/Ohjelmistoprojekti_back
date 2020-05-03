@@ -30,9 +30,9 @@ public class ProjektiApplication {
 			log.info("delete old test data");
 			rqRepository.deleteAll();
 			log.info("save demo radio questions to db");
-			rqRepository.save(new Kysymys("Mitä kuuluu?"));
-			rqRepository.save(new Kysymys("Miten menee?"));
-			rqRepository.save(new Kysymys("Moi?"));
+			rqRepository.save(new Kysymys("Mitä kuuluu?", "radio"));
+			rqRepository.save(new Kysymys("Miten menee?", "open"));
+			rqRepository.save(new Kysymys("Moi?", "radio"));
 			
 			//Salasanat voi hashata BCryptillä ja alempana on 2 esimerkkiä hashatuista salasanoista. Molemmat ovat "salasana123"
 			//$2y$12$567/3N/tvuxIR4BKL4dcIeNnL.nB/v0YCP6H5OFKayOiJ/NRH70UW

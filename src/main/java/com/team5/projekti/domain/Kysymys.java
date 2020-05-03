@@ -16,6 +16,7 @@ public class Kysymys {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String question;
+	private String type;
 	
 	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
 	private List<Vastaus> answers;*/
@@ -24,9 +25,10 @@ public class Kysymys {
 		this.question = null;
 	}
 	
-	public Kysymys(String question) {
+	public Kysymys(String question, String type) {
 		super();
 		this.question = question;
+		this.type = type;
 	}
 	
 	public Long getId() {
@@ -41,6 +43,13 @@ public class Kysymys {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	
 	/*public List<Vastaus> getAnswers() {
 		return answers;
@@ -52,7 +61,7 @@ public class Kysymys {
 	
 	@Override
 	public String toString() {
-		return "Radio [id=" + id + ", question=" + question + "]";
+		return "Kysymys [id=" + id + ", question=" + question + ", type=" + type + "]";
 	}
 
 }
