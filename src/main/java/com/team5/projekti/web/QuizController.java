@@ -89,4 +89,12 @@ public class QuizController {
 	public @ResponseBody List<Vastaus> findAllAnswers() {	
 	     return (List<Vastaus>) aRepository.findAll();
 	 }
+	
+	//Vain Admin
+	//@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value="/answerTable", method = RequestMethod.GET)
+	public @ResponseBody List<Vastaus> findAllAnswers() {	
+	     return (List<Vastaus>) aRepository.findAll();
+	 }
+	 }
 }
