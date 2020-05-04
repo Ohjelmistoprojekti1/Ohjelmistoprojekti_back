@@ -8,9 +8,9 @@
 <body>
 	<h1 th:text="Answers"></h1>
 	<table>
-		<tr th:each="answer: ${radioAnswer}">
-			<td  th:text="${answer.id}"></td>
-			<td><a href="#" th:text="${answer.answer}"></a></td>
+		<tr th:each="vastaus: ${answers}">
+			<td  th:text="${vastaus.id}"></td>
+			<td th:text="${vastaus.type}"></td>
 		</tr>
 	</table>
 </body>
