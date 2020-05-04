@@ -98,8 +98,8 @@ public class QuizController {
 	
 	//Vain Admin
 	//@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value = {"/answerTable"})
-	public String answerTable(){
+	public String answerTable(Model model) {
+		model.addAttribute("answers", aRepository.findAll());
 		return "answerTable";
 	 }
 	 
