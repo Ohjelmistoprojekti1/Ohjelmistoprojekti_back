@@ -46,10 +46,11 @@ public class QuizController {
         return (List<Kysymys>) rqRepository.findAll();
     	}
 	
+	// Kysymyslista admin
+	// @PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value= {"/kysymyslista"})
 	public String kysymysLista(Model model) {
-		List<Kysymys> kysymykset = rqRepository.findAll();
-		model.addAttribute("kysymykset", kysymykset);
+		model.addAttribute("kysymykset", rqRepository.findAll());
 		return "kysymyslista";
 	}
 	
