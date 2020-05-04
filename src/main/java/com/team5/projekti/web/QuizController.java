@@ -34,11 +34,6 @@ public class QuizController {
 		return "index";
 	}
 	
-	@RequestMapping(value= {"/kysymyslista"})
-	public String kysymyslista() {
-		return "kysymyslista";
-	}
-	
 	// Rest-rajapinta yksittäiselle Radio-kysymykselle
 	@RequestMapping(value="/kysymys/{id}", method=RequestMethod.GET)
 	public @ResponseBody Optional<Kysymys> findRadioQuestion(@PathVariable Long id) {
@@ -50,6 +45,14 @@ public class QuizController {
    	public @ResponseBody List<Kysymys> findAllRadioQuestions() {	
         return (List<Kysymys>) rqRepository.findAll();
     	}
+	
+	@RequestMapping(value= {"/kysymyslista"})
+	public String kysymysLista(Model model) {
+		List<Kysymys> kysymykset = rqRepository.findAll();
+		model.addAttribute("kysymykset", kysymykset);
+		return "kysymyslista";
+	}
+	
 	
 	// Lisää kysymys admin
 	// @PreAuthorize("hasAuthority('ADMIN')")
