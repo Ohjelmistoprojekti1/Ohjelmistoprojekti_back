@@ -34,6 +34,11 @@ public class QuizController {
 		return "index";
 	}
 	
+	@RequestMapping(value= {"/kysymyslista})
+	public String kysymyslista() {
+		return "kysymyslista";
+	}
+	
 	// Rest-rajapinta yksittäiselle Radio-kysymykselle
 	@RequestMapping(value="/kysymys/{id}", method=RequestMethod.GET)
 	public @ResponseBody Optional<Kysymys> findRadioQuestion(@PathVariable Long id) {
