@@ -11,7 +11,7 @@
 		<form th:object="${kysymys}" th:action="@{../tallenna}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}" />
 			<label for="question">Kysymys</label>
-			<input type="text" id="title" th:field="*{title}" />
+			<input type="text" id="question" th:field="*{question}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="type">Tyyppi</label>
 			<input type="text" id="type" th:field="*{type}" />
