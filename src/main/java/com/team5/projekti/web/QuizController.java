@@ -34,7 +34,7 @@ public class QuizController {
 		return "index";
 	}
 	
-	@RequestMapping(value= {"/kysymyslista})
+	@RequestMapping(value= {"/kysymyslista"})
 	public String kysymyslista() {
 		return "kysymyslista";
 	}
