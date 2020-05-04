@@ -23,6 +23,7 @@
 			<th />
 
 		</tr>
+		<tbody id="QTable">
 		<tr th:each="kysymys : ${kysymykset}">
 			<td th:text="${kysymys.question}"></td>
 			<td th:text="${kysymys.type}"></td>
@@ -33,6 +34,7 @@
 			<td><a th:href="@{/muokkaa/{id}(id=${kysymys.id})}"
 				class="btn btn-primary">Muokkaa</a></td>
 		</tr>
+		</tbody>	
 	</table>
 	</div>
 </body>
