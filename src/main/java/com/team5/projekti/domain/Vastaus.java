@@ -18,8 +18,8 @@ public class Vastaus {
 	private String answer;
 	
 	@ManyToOne
-  @JoinColumn(name = "kysymysId")
-  private Kysymys kysymys;
+    	@JoinColumn(name = "kysymysId")
+    	private Kysymys kysymys;
 	
 	@ManyToOne
 	@JoinColumn(name = "vastaajaId")
@@ -36,7 +36,6 @@ public class Vastaus {
 		this.answer = answer;
 		this.kysymys = kysymys;
 		this.vastaaja = vastaaja;
-
 	}
 
 	public Long getId() {
@@ -47,12 +46,12 @@ public class Vastaus {
 		this.id = id;
 	}
 
-	public Vastaaja getVastaaja() {
-		return vastaaja;
+	public String getAnswer() {
+		return answer;
 	}
 
-	public void setVastaaja(Vastaaja vastaaja) {
-		this.vastaaja = vastaaja;
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 	
 	public Kysymys getKysymys() {
@@ -73,7 +72,7 @@ public class Vastaus {
 
 	@Override
 	public String toString() {
-		return "Vastaus [id=" + id + ", vastaaja=" + vastaaja + "]";
+		return "Vastaus [id=" + id + ", answer=" + answer + "]";
 	}
 	
 	
