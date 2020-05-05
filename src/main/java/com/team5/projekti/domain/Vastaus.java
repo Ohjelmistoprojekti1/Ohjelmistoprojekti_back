@@ -17,17 +17,17 @@ public class Vastaus {
 	
 	/*@ManyToOne
 	@JoinColumn(name = "id")
-	private Radio question;*/
+	private Vastaaja vastaaja;*/
 	
 	public Vastaus() {
 		this.answer = null;
-		/*this.question= null;*/
+		/*this.vastaaja= null;*/
 	}
 	
-	public Vastaus(String answer/*, Radio question*/) {
+	public Vastaus(String answer/*, vastaaja vastaaja*/) {
 		super();
 		this.answer = answer;
-		/*this.question= question;*/
+		/*this.vastaaja= vastaaja;*/
 	}
 
 	public Long getId() {
@@ -46,13 +46,6 @@ public class Vastaus {
 		this.answer = answer;
 	}
 
-	/*public Kysymys getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(Kysymys question) {
-		this.question = question;
-	}*/
 
 	@Override
 	public String toString() {
