@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Vastaus {
 	
@@ -15,19 +17,27 @@ public class Vastaus {
 	private Long id;
 	private String answer;
 	
-	/*@ManyToOne
+	@ManyToOne
+	@JsonManagedReference
+    @JoinColumn(name = "id")
+    private Kysymys kysymys;
+	
+	@ManyToOne
+	@JsonManagedReference
 	@JoinColumn(name = "id")
-	private Vastaaja vastaaja;*/
+	private Vastaaja vastaaja;
 	
 	public Vastaus() {
 		this.answer = null;
-		/*this.vastaaja= null;*/
+		this.kysymys = null;
+		this.vastaaja =null;
 	}
 	
-	public Vastaus(String answer/*, vastaaja vastaaja*/) {
+	public Vastaus(String answer, Kysymys kysymys, Vastaaja vastaaja) {
 		super();
 		this.answer = answer;
-		/*this.vastaaja= vastaaja;*/
+		this.kysymys = kysymys;
+		this.vastaaja = vastaaja;
 	}
 
 	public Long getId() {
@@ -45,7 +55,22 @@ public class Vastaus {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+	
+	public Kysymys getKysymys() {
+		return kysymys;
+	}
 
+	public void setKysymys(Kysymys kysymys) {
+		this.kysymys = kysymys;
+	}
+
+	public Vastaaja getVastaaja() {
+		return vastaaja;
+	}
+
+	public void setVastaaja(Vastaaja vastaaja) {
+		this.vastaaja = vastaaja;
+	}
 
 	@Override
 	public String toString() {

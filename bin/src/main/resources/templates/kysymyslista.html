@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Kysymyslista</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Kysymykset</h1>
+	
+	<div class="container">
+  	<input class="form-control mb-4" id="tableSearch" type="text" placeholder="Etsi hakusanalla">
+		
+	<a href="/lisaakysymys" class="btn btn-success">Lisää kysymys</a>
+		
+	<table class="table table-striped">
+		<thead class="thead-dark">
+		<tr>
+			<th>Kysymys</th>
+			<th>Tyyppi</th>
+			<th />
+			<th />
+
+		</tr>
+		</thead>
+		
+		<tbody id="QTable">
+		<tr th:each="kysymys : ${kysymykset}">
+			<td th:text="${kysymys.question}"></td>
+			<td th:text="${kysymys.type}"></td>
+			<td><a th:href="@{/poista/{id}(id=${kysymys.id})}"
+				class="btn btn-danger">Poista</a></td>
+			<td><a th:href="@{/muokkaa/{id}(id=${kysymys.id})}"
+				class="btn btn-primary">Muokkaa</a></td>
+		</tr>
+		</tbody>	
+	</table>
+	</div>
+	
+	<script>
+		$(document).ready(function(){
+ 	 	$("#tableSearch").on("keyup", function() {
+    		var value = $(this).val().toLowerCase();
+   		 $("#QTable tr").filter(function() {
+     		 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+   		 });
+ 		 });
+		});
+	</script>
+</body>
+</html>
+

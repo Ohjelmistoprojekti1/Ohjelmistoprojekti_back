@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Vastaaja {
 	
@@ -16,14 +18,12 @@ public class Vastaaja {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "")
-	private List<Vastaus> answers;*/
+	@JsonBackReference
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastaaja")
+	private List<Vastaus> answers;
 	
-	public Kysymys() {
-		this.question = null;
-	}
-	
-	public Kysymys() {
+	public Vastaaja() {
+		this.answers = null;
 	}
 	
 	public Long getId() {
@@ -33,16 +33,17 @@ public class Vastaaja {
 		this.id = id;
 	}
 	
-	/*public List<Vastaus> getAnswers() {
+	public List<Vastaus> getAnswers() {
 		return answers;
 	}
+
 	public void setAnswers(List<Vastaus> answers) {
 		this.answers = answers;
-	}*/
-	
+	}
+
 	@Override
 	public String toString() {
-		return "Kysymys [id=" + id + "]";
+		return "Vastaaja [id=" + id + "]";
 	}
 
 }
