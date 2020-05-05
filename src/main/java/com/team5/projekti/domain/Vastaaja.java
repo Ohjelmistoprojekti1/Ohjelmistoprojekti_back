@@ -18,7 +18,6 @@ public class Vastaaja {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long vastaajaId;
 	
-	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastaaja")
 	private List<Vastaus> answers;
 	

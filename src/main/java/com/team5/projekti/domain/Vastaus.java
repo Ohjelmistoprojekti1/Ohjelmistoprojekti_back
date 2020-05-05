@@ -18,12 +18,10 @@ public class Vastaus {
 	private String answer;
 	
 	@ManyToOne
-	@JsonManagedReference
     @JoinColumn(name = "kysymysId")
     private Kysymys kysymys;
 	
 	@ManyToOne
-	@JsonManagedReference
 	@JoinColumn(name = "vastaajaId")
 	private Vastaaja vastaaja;
 	

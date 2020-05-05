@@ -20,7 +20,6 @@ public class Kysymys {
 	private String question;
 	private String type;
 	
-	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
 	private List<Vastaus> answers;
 	
