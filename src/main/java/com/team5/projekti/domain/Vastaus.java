@@ -19,12 +19,12 @@ public class Vastaus {
 	
 	@ManyToOne
 	@JsonManagedReference
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "kysymysId")
     private Kysymys kysymys;
 	
 	@ManyToOne
 	@JsonManagedReference
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "vastaajaId")
 	private Vastaaja vastaaja;
 	
 	public Vastaus() {

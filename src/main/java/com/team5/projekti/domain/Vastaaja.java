@@ -16,7 +16,7 @@ public class Vastaaja {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long vastaajaId;
 	
 	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastaaja")
@@ -27,10 +27,10 @@ public class Vastaaja {
 	}
 	
 	public Long getId() {
-		return id;
+		return vastaajaId;
 	}
 	public void setId(Long id) {
-		this.id = id;
+		this.vastaajaId = id;
 	}
 	
 	public List<Vastaus> getAnswers() {
@@ -43,7 +43,7 @@ public class Vastaaja {
 
 	@Override
 	public String toString() {
-		return "Vastaaja [id=" + id + "]";
+		return "Vastaaja [id=" + vastaajaId + "]";
 	}
 
 }
