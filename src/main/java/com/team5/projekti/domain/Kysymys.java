@@ -21,7 +21,7 @@ public class Kysymys {
 	private String type;
 	
 	@JsonBackReference
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
 	private List<Vastaus> answers;
 	
 	public Kysymys() {
