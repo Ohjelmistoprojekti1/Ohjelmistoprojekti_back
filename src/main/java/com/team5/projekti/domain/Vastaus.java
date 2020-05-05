@@ -15,19 +15,20 @@ public class Vastaus {
 	private Long id;
 	private String answer;
 	
-	/*@ManyToOne
+	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "id")
-	private Vastaaja vastaaja;*/
+	private Vastaaja vastaaja;
 	
 	public Vastaus() {
 		this.answer = null;
-		/*this.vastaaja= null;*/
+		this.vastaaja= null;
 	}
 	
-	public Vastaus(String answer/*, vastaaja vastaaja*/) {
+	public Vastaus(String answer, Vastaaja vastaaja) {
 		super();
 		this.answer = answer;
-		/*this.vastaaja= vastaaja;*/
+		this.vastaaja= vastaaja;
 	}
 
 	public Long getId() {
@@ -38,18 +39,18 @@ public class Vastaus {
 		this.id = id;
 	}
 
-	public String getAnswer() {
-		return answer;
+	public Vastaaja getVastaaja() {
+		return vastaaja;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setVastaaja(Vastaaja vastaaja) {
+		this.vastaaja = vastaaja;
 	}
 
 
 	@Override
 	public String toString() {
-		return "Vastaus [id=" + id + ", answer=" + answer + "]";
+		return "Vastaus [id=" + id + ", vastaaja=" + vastaaja + "]";
 	}
 	
 	
