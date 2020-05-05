@@ -17,11 +17,18 @@ public class Vastaaja {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long vastaajaId;
+	private String email;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastaaja")
 	private List<Vastaus> answers;
 	
 	public Vastaaja() {
+		this.email = null;
+		this.answers = null;
+	}
+	
+	public Vastaaja(String email) {
+		this.email = email;
 		this.answers = null;
 	}
 	
