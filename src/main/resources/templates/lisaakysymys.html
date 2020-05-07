@@ -13,7 +13,10 @@
 			<input type="text" id="question" th:field="*{question}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="type">Tyyppi</label>
-			<input type="text" id="type" th:field="*{type}" />
+			<select id="type" th:field="*{type}">
+				<option value="radio">radio</option>
+ 				<option value="open">open</option>
+			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<input type="submit" value="Tallenna" class="btn btn-success"></input>
 		</form>
