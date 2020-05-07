@@ -35,16 +35,16 @@ public class QuizController {
 	}
 	
 	// Rest-rajapinta yksittäiselle Radio-kysymykselle
-	@RequestMapping(value="/kysymys/{id}", method=RequestMethod.GET)
-	public @ResponseBody Optional<Kysymys> findRadioQuestion(@PathVariable Long id) {
-		return rqRepository.findById(id);
-	}
+	//@RequestMapping(value="/kysymys/{id}", method=RequestMethod.GET)
+	//public @ResponseBody Optional<Kysymys> findRadioQuestion(@PathVariable Long id) {
+		//return rqRepository.findById(id);
+	//}
 	
 	// Rest-rajapinta kaikille Radio-kysymyksille
-	@RequestMapping(value="/kysymys", method = RequestMethod.GET)
-   	public @ResponseBody List<Kysymys> findAllRadioQuestions() {	
-        return (List<Kysymys>) rqRepository.findAll();
-    	}
+	//@RequestMapping(value="/kysymys", method = RequestMethod.GET)
+   	//public @ResponseBody List<Kysymys> findAllRadioQuestions() {	
+        //return (List<Kysymys>) rqRepository.findAll();
+    	//}
 	
 	// Kysymyslista admin
 	// @PreAuthorize("hasAuthority('ADMIN')")
