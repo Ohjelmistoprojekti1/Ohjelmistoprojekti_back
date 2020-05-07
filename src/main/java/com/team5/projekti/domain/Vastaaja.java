@@ -39,6 +39,14 @@ public class Vastaaja {
 		this.vastaajaId = id;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public List<Vastaus> getAnswers() {
 		return answers;
 	}
