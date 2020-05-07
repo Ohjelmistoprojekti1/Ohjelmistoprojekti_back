@@ -12,51 +12,33 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class Kysymys {
+public class Vastaaja {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long kysymysId;
-	private String question;
-	private String type;
+	private Long vastaajaId;
+	private String email;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "vastaaja")
 	private List<Vastaus> answers;
 	
-	public Kysymys() {
-		this.question = null;
+	public Vastaaja() {
+		this.email = null;
+		this.answers = null;
 	}
 	
-	public Kysymys(String question, String type) {
-		super();
-		this.question = question;
-		this.type = type;
+	public Vastaaja(String email) {
+		this.email = email;
+		this.answers = null;
 	}
 	
 	public Long getId() {
-		return kysymysId;
+		return vastaajaId;
 	}
-	
 	public void setId(Long id) {
-		this.kysymysId = id;
+		this.vastaajaId = id;
 	}
 	
-	public String getQuestion() {
-		return question;
-	}
-	
-	public void setQuestion(String question) {
-		this.question = question;
-	}
-	
-	public String getType() {
-		return type;
-	}
-	
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	public List<Vastaus> getAnswers() {
 		return answers;
 	}
@@ -64,10 +46,10 @@ public class Kysymys {
 	public void setAnswers(List<Vastaus> answers) {
 		this.answers = answers;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Kysymys [id=" + kysymysId + ", question=" + question + ", type=" + type + "]";
+		return "Vastaaja [id=" + vastaajaId + "]";
 	}
 
 }
