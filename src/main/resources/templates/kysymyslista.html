@@ -1,16 +1,13 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Kysymyslista</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
-	th:href="@{css/bootstrap.min.css}" />
+  <title>Kysymyslista</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 	<h1>Kysymykset</h1>
 	
-	<div class="container">
-  	<input class="form-control mb-4" id="tableSearch" type="text" placeholder="Etsi hakusanalla">
 		
 	<a href="/lisaakysymys" class="btn btn-success">Lisää kysymys</a>
 		
@@ -36,18 +33,7 @@
 		</tr>
 		</tbody>	
 	</table>
-	</div>
 	
-	<script>
-		$(document).ready(function(){
- 	 	$("#tableSearch").on("keyup", function() {
-    		var value = $(this).val().toLowerCase();
-   		 $("#QTable tr").filter(function() {
-     		 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-   		 });
- 		 });
-		});
-	</script>
 </body>
 </html>
 
