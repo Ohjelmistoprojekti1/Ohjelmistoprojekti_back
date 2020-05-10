@@ -15,11 +15,11 @@ public class Vastaus {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String answer;
+	public String answer;
 	
 	@ManyToOne
-    	@JoinColumn(name = "kysymysId")
-    	private Kysymys kysymys;
+    @JoinColumn(name = "kysymysId")
+    private Kysymys kysymys;
 	
 	@ManyToOne
 	@JoinColumn(name = "vastaajaId")

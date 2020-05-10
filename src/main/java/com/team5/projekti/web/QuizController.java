@@ -19,10 +19,13 @@ import com.team5.projekti.domain.*;
 public class QuizController {
 	
 	@Autowired
-	private KysymysRepository rqRepository;
+	private KysymysRepository qRepository;
 	
 	@Autowired
 	private VastausRepository aRepository;
+	
+	@Autowired
+	private VastaajaRepository vRepository;
 	
 	@RequestMapping(value = {"/login"})
 	public String login(){
@@ -37,20 +40,20 @@ public class QuizController {
 	// Rest-rajapinta yksittäiselle Radio-kysymykselle
 	//@RequestMapping(value="/kysymys/{id}", method=RequestMethod.GET)
 	//public @ResponseBody Optional<Kysymys> findRadioQuestion(@PathVariable Long id) {
-		//return rqRepository.findById(id);
+		//return qRepository.findById(id);
 	//}
 	
 	// Rest-rajapinta kaikille Radio-kysymyksille
 	//@RequestMapping(value="/kysymys", method = RequestMethod.GET)
    	//public @ResponseBody List<Kysymys> findAllRadioQuestions() {	
-        //return (List<Kysymys>) rqRepository.findAll();
+        //return (List<Kysymys>) qRepository.findAll();
     	//}
 	
 	// Kysymyslista admin
 	// @PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value= {"/kysymyslista"})
 	public String kysymysLista(Model model) {
-		model.addAttribute("kysymykset", rqRepository.findAll());
+		model.addAttribute("kysymykset", qRepository.findAll());
 		return "kysymyslista";
 	}
 	
@@ -67,7 +70,7 @@ public class QuizController {
 	// @PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/tallenna", method = RequestMethod.POST)
 	public String tallenna(Kysymys kysymys) {
-		rqRepository.save(kysymys);
+		qRepository.save(kysymys);
 		return "redirect:kysymyslista";
 	}
 
@@ -75,7 +78,7 @@ public class QuizController {
 	// @PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/poista/{id}", method = RequestMethod.GET)
 	public String poistaKysymys(@PathVariable("id") Long kysymysId, Model model) {
-		rqRepository.deleteById(kysymysId);
+		qRepository.deleteById(kysymysId);
 		return "redirect:../kysymyslista";
 	}
 
@@ -83,7 +86,7 @@ public class QuizController {
 	// @PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/muokkaa/{id}", method = RequestMethod.GET)
 	public String muokkaaKysymys(@PathVariable("id") Long kysymysId, Model model) {
-		model.addAttribute("kysymys", rqRepository.findById(kysymysId));
+		model.addAttribute("kysymys", qRepository.findById(kysymysId));
 		return "muokkaakysymys";
 	}
 	
@@ -98,10 +101,26 @@ public class QuizController {
 	
 	//Vain Admin
 	//@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value= {"/answerTable"})
+	@RequestMapping(value= {"/vastaajat"})
 	public String answerTable(Model model) {
-		model.addAttribute("answers", aRepository.findAll());
-		return "answerTable";
+		model.addAttribute("vastaajat", vRepository.findAll());
+		return "vastaajat";
 	 }
+	
+	//Vain admin
+	//@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value = "/vastaukset/vastaaja/{id}", method = RequestMethod.GET)
+	public String vastauksetPerVastaaja(@PathVariable("id") Long vastaajaId, Model model) {
+		model.addAttribute("vastaaja", vRepository.findById(vastaajaId));
+		return "vastauksetPerVastaaja";
+	}
+	
+	//Vain admin
+	//@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value = "/vastaukset/kysymys/{id}", method = RequestMethod.GET)
+	public String vastauksetPerKysymys(@PathVariable("id") Long kysymysId, Model model) {
+		model.addAttribute("kysymys", qRepository.findById(kysymysId));
+		return "vastauksetPerKysymys";
+	}
 	 
 }
