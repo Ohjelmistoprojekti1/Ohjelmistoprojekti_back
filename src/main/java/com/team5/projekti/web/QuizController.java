@@ -37,6 +37,11 @@ public class QuizController {
 		return "index";
 	}
 	
+	@RequestMapping(value= {"/adminpage"})
+	public String adminpage() {
+		return "adminpage";
+	}
+	
 	// Rest-rajapinta yksittäiselle Radio-kysymykselle
 	//@RequestMapping(value="/kysymys/{id}", method=RequestMethod.GET)
 	//public @ResponseBody Optional<Kysymys> findRadioQuestion(@PathVariable Long id) {
