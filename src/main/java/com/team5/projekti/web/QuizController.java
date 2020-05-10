@@ -37,6 +37,9 @@ public class QuizController {
 		return "index";
 	}
 	
+	
+	//Vain admin
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value= {"/adminpage"})
 	public String adminpage() {
 		return "adminpage";
