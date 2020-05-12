@@ -30,10 +30,11 @@ public class Kysymys {
 		this.question = null;
 	}
 	
-	public Kysymys(String question, String type) {
-		super();
+	public Kysymys(String question, String type, List<Vaihtoehto> vaihtoehdot) {
+		
 		this.question = question;
 		this.type = type;
+		this.vaihtoehdot = vaihtoehdot;
 	}
 	
 	public Long getId() {
