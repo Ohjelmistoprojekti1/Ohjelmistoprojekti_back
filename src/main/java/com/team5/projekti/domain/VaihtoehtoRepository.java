@@ -5,5 +5,5 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 public interface VaihtoehtoRepository extends CrudRepository<Vaihtoehto, Long>{
-	List<Vaihtoehto> findByName(String teksti);
+	List<Vaihtoehto> findByTeksti(String teksti);
 }
