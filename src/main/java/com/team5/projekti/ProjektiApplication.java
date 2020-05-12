@@ -24,13 +24,14 @@ public class ProjektiApplication {
 	
 	// Vanhojen esimerkkikysymysten poisto ja uusien lisääminen tietokantaan
 	@Bean
-	public CommandLineRunner questionDemo(VastaajaRepository vRepository, KysymysRepository kRepository, VastausRepository vaRepository, KayttajaRepository krepository) {
+	public CommandLineRunner questionDemo(VastaajaRepository vRepository, KysymysRepository kRepository, VastausRepository vaRepository, KayttajaRepository krepository, VaihtoehtoRepository veRepository) {
 		return (args) -> {
 			
 			log.info("delete old test data");
 			vaRepository.deleteAll();
 			kRepository.deleteAll();
 			vRepository.deleteAll();
+			veRepository.deleteAll();
 			
 			log.info("save demo kysymyses to db");
 			kRepository.save(new Kysymys("Mitä kuuluu?", "radio"));
