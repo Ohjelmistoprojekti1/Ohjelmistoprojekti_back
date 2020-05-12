@@ -23,6 +23,9 @@ public class Kysymys {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
 	private List<Vastaus> answers;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
+	private List<Vaihtoehto> vaihtoehdot;
+	
 	public Kysymys() {
 		this.question = null;
 	}
@@ -65,6 +68,15 @@ public class Kysymys {
 		this.answers = answers;
 	}
 	
+	
+	public List<Vaihtoehto> getVaihtoehdot() {
+		return vaihtoehdot;
+	}
+
+	public void setVaihtoehdot(List<Vaihtoehto> vaihtoehdot) {
+		this.vaihtoehdot = vaihtoehdot;
+	}
+
 	@Override
 	public String toString() {
 		return "Kysymys [id=" + kysymysId + ", question=" + question + ", type=" + type + "]";
