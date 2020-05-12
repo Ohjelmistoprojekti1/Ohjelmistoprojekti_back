@@ -27,6 +27,9 @@ public class QuizController {
 	@Autowired
 	private VastaajaRepository vRepository;
 	
+	@Autowired
+	private VaihtoehtoRepository veRepository;
+	
 	@RequestMapping(value = {"/login"})
 	public String login(){
 		return "login";
@@ -71,6 +74,7 @@ public class QuizController {
 	@RequestMapping(value = "/lisaakysymys")
 	public String addKysymys(Model model) {
 		model.addAttribute("kysymys", new Kysymys());
+		model.addAttribute("vaihtoehdot", new Vaihtoehto());
 		return "lisaakysymys";
 	}
 
@@ -95,6 +99,7 @@ public class QuizController {
 	@RequestMapping(value = "/muokkaa/{id}", method = RequestMethod.GET)
 	public String muokkaaKysymys(@PathVariable("id") Long kysymysId, Model model) {
 		model.addAttribute("kysymys", qRepository.findById(kysymysId));
+		model.addAttribute("vaihtoehdot", veRepository.findAll());
 		return "muokkaakysymys";
 	}
 	
