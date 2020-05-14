@@ -14,20 +14,24 @@
 	</form></br>
 	
 	<table class="table table-striped">
-    <thead>
-		<tr>
-		    <th th:text="${kysymys}"></th>
-		</tr>
-	</thead>
-	<tbody>
-    	<tr>
-    		<td th:text = "'vastaus 1'"></td>
-    	</tr>
-    	<tr>
-    		<td th:text = "'vastaus 2'"></td>
-    	</tr>
-    </tbody>  
-     </table> 
+  	<thead>
+  		<tr>
+  		<th>Kysymys</th>
+  		<span th:each = "vastaus, status : ${kysymys.answers}">
+    		<th th:text= "'Vastaus ' + ${status.index+1}">></th>
+    	<span/>
+    	<tr/>
+  	</thead>
+  	<tbody>
+  	<tr>
+  		<td th:text="${kysymys.question}"></td>
+  		<span th:each = "vastaus : ${kysymys.answers}">
+    		<td th:text = "${vastaus.answer}"></span>
+    	<span/>
+    <tr/>
+    	
+  	</tbody>
+	</table> 
      
 
      <a href="/kysymyslista" class="btn btn-success">Kysymykset</a> 

@@ -13,20 +13,23 @@
 			<input type="submit" value="Kirjaudu ulos" class="btn btn-danger"/>
 	</form></br>
 	
-  	<table>
+  	<table class="table table-striped">
   	<thead>
   		<tr>
-    		<th th:text="${vastaaja}"></th>
-    		<th>Keskiarvo</th>
-  		</tr>
+  		<th>Vastaaja</th>
+  		<span th:each = "kysymys : ${kysymykset}">
+    		<th th:text = "${kysymys.question}"></th>
+    	</span>
+    	<tr/>
   	</thead>
   	<tbody>
-  		<tr>
-    		<td th:text="'vastaus 1'"></td>
-  		</tr>
-  		<tr>
-    		<td th:text="'vastaus 2'"></td>
-  		</tr>
+  	<tr>
+  		<td th:text="${vastaaja.email}"></td>
+  		<span th:each = "vastaus : ${vastaaja.answers}">
+    		<td th:text = "${vastaus.answer}"></td>
+    	<span/>
+    	
+    </tr>
   	</tbody>
 	</table>
      
