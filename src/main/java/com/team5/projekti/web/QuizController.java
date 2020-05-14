@@ -117,6 +117,7 @@ public class QuizController {
 	@RequestMapping(value= {"/vastaajat"})
 	public String answerTable(Model model) {
 		model.addAttribute("vastaajat", vRepository.findAll());
+		model.addAttribute("kysymykset", qRepository.findAll());
 		return "vastaajat";
 	 }
 	
