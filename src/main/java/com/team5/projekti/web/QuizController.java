@@ -117,15 +117,19 @@ public class QuizController {
 	@RequestMapping(value= {"/vastaajat"})
 	public String answerTable(Model model) {
 		model.addAttribute("vastaajat", vRepository.findAll());
-		model.addAttribute("kysymykset", qRepository.findAll());
 		return "vastaajat";
 	 }
+	
+	
 	
 	//Vain admin
 	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/vastaukset/vastaaja/{id}", method = RequestMethod.GET)
 	public String vastauksetPerVastaaja(@PathVariable("id") Long vastaajaId, Model model) {
-		model.addAttribute("vastaaja", vRepository.findById(vastaajaId));
+		//Optional<Vastaaja> vastaajaa= vRepository.findById(vastaajaId);
+		//System.out.println(Optional.get(vastaajaa));
+		model.addAttribute("vastaaja", vRepository.findById(vastaajaId).get());
+		model.addAttribute("kysymykset", qRepository.findAll());
 		return "vastauksetPerVastaaja";
 	}
 	
@@ -133,7 +137,8 @@ public class QuizController {
 	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/vastaukset/kysymys/{id}", method = RequestMethod.GET)
 	public String vastauksetPerKysymys(@PathVariable("id") Long kysymysId, Model model) {
-		model.addAttribute("kysymys", qRepository.findById(kysymysId));
+		model.addAttribute("kysymys", qRepository.findById(kysymysId).get());
+		model.addAttribute("kysymykset", qRepository.findAll());
 		return "vastauksetPerKysymys";
 	}
 	 

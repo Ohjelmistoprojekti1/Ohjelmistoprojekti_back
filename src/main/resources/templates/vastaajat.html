@@ -18,22 +18,18 @@
 		<tr>
 		    <th>Vastaaja</th>
 		    <th>Sähköposti</th>
-		    <span th:each = "kysymys : ${kysymykset}">
-		    	<th th:text="${kysymys.question}"></th>
-		    </span> 
 		    <th>Vastaukset</th>
 		</tr>
 	</thead>
 	<tbody>
     	<tr th:each = "vastaaja, status : ${vastaajat}">
     		<td th:text = "'Vastaaja ' + ${status.index+1}"></td>
-    		<td th:text = "${vastaaja.email}"></td>
-    		<span th:each = "vastaus : ${vastaaja.answers}">
-		    	<th th:text="${vastaus.answer}"></th>
-		    </span> 
+    		<td th:text = "${vastaaja.email}"></td> 
     		<td> <a href="vastauksetPerVastaaja.html" 
-         th:href="@{/vastaukset/vastaaja/{id}(id=${vastaaja.vastaajaId})}" 
-         th:if="${not #lists.isEmpty(vastaaja.answers)}">vastaukset</a></td>
+         			th:href="@{/vastaukset/vastaaja/{id}(id=${vastaaja.vastaajaId})}" 
+         			th:if="${not #lists.isEmpty(vastaaja.answers)}">vastaukset
+         		</a>
+         	</td>
     	</tr>
     </tbody>  
      </table> 
