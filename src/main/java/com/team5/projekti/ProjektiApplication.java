@@ -39,8 +39,12 @@ public class ProjektiApplication {
 			kRepository.save(new Kysymys("Moi?", "radio"));
 			
 			log.info("save demo vaihtoehto to db");
-			veRepository.save(new Vaihtoehto("Hyvin", kRepository.findByQuestion("Miten menee?").get(0)));
-			veRepository.save(new Vaihtoehto("Huonosti", kRepository.findByQuestion("Miten menee?").get(0)));
+			veRepository.save(new Vaihtoehto("Hyvää", kRepository.findByQuestion("Mitä kuuluu?").get(0)));
+			veRepository.save(new Vaihtoehto("Ihan ok", kRepository.findByQuestion("Mitä kuuluu?").get(0)));
+			veRepository.save(new Vaihtoehto("Huonoa", kRepository.findByQuestion("Mitä kuuluu?").get(0)));
+			
+			veRepository.save(new Vaihtoehto("Joo", kRepository.findByQuestion("Moi?").get(0)));
+			veRepository.save(new Vaihtoehto("Ei", kRepository.findByQuestion("Moi?").get(0)));
 			
 			log.info("save demo vastaaja to db");
 			vRepository.save(new Vastaaja("sposti@sposti.fi"));
