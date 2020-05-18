@@ -18,7 +18,9 @@
 				<th>Kysymys</th>
 				<th>Tyyppi</th>
 				<th>Vaihtoehdot</th>
+				<th>Lisää vaihtoehto</th>
 				<th>Vastaukset</th>
+				
 				<th />
 				<th />
 			</tr>
@@ -28,12 +30,14 @@
 			<tr th:each="kysymys : ${kysymykset}">
 				<td th:text="${kysymys.question}"></td>
 				<td th:text="${kysymys.type}"></td>
-				<td th:text="${kysymys.vaihtoehdot}"></td>
+				<td th:text="${kysymys.vaihtoehdot}" ></td>
+				<td><a th:href="@{/vaihtoehdot/kysymys/{id}(id=${kysymys.id})}" class="button">+</a></td>
 				<td><a th:href="@{/vastaukset/kysymys/{id}(id=${kysymys.id})}">vastaukset</a></td>
 				<td><a th:href="@{/poista/{id}(id=${kysymys.id})}"
 					class="btn btn-danger">Poista</a></td>
 				<td><a th:href="@{/muokkaa/{id}(id=${kysymys.id})}"
 					class="btn btn-primary">Muokkaa</a></td>
+					
 			</tr>
 		</tbody>
 	</table>

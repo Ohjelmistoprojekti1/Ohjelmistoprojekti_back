@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Vaihtoehtolista</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Vaihtoehdot</h1>
+	
+		
+	<a href="/lisaakysymys" class="btn btn-success">Lisää kysymys</a>
+		
+	<table class="table table-striped">
+		<thead class="thead-dark">
+		<tr>
+			<th>vaihtoehtoid</th>
+			<th>Teksti</th>
+			<th>kysymys id</th>
+			
+		</tr>
+		</thead>
+		
+		<tbody id="QTable">
+		<tr th:each="vaihtoehto : ${vaihtoehdot}">
+			<td th:text="${vaihtoehto.vaihtoehtoid}"></td>
+			<td th:text="${vaihtoehto.teksti}"></td>
+			<td th:text="${vaihtoehto.kysymys}"></td>
+			
+		</tr>
+		</tbody>	
+	</table>
+	<a href="/vastaajat" class="btn btn-success">Vastaajat</a> 
+	
+</body>
+</html>
+

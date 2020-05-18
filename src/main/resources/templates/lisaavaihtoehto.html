@@ -1,23 +1,17 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lisää kysymys</title>
+    <title>Lisää vaihtoehdot</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1>Lisää kysymys</h1>
+	<h1>Lisää vaihtoehto</h1>
 	<div>
-		<form th:object="${kysymys}" th:action="@{tallenna}" action="#" method="post">
-		  	<label for="question">Kysymys</label>
-			<input type="text" id="question" th:field="*{question}" />
+		<form th:object="${vaihtoehdot}" th:action="@{tallennave}" action="#" method="post">
+		  	<label for="teksti">Vaihtoehto</label>
+			<input type="text" id="teksti" th:field="*{teksti}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-		  	<label for="type">Tyyppi</label>
-			<select id="type" th:field="*{type}">
-				<option value="radio">radio</option>
- 				<option value="open">avoin</option>
-			</select>
-			<br>
 			<input type="submit" value="Tallenna" class="btn btn-success"></input>
 		</form>
 	</div>
