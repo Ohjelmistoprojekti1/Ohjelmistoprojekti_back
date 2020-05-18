@@ -103,6 +103,27 @@ public class QuizController {
 		return "muokkaakysymys";
 	}
 	
+	//Näytä kaikki vaihtoehdot
+	@RequestMapping(value = "/velista", method = RequestMethod.GET)
+	public String veLista(Model model) {
+		model.addAttribute("vaihtoehdot", veRepository.findAll());
+		return "velista";
+	}
+	
+	//Näyttää vaihtoehdot PER KYSYMYS
+	@RequestMapping(value = "/vaihtoehdot/kysymys/{id}", method = RequestMethod.GET)
+	public String vaihtoehdotPerKysymys(@PathVariable("id") Long kysymysId, Model model) {
+		model.addAttribute("kysymys", qRepository.findById(kysymysId).get());
+		model.addAttribute("vaihtoehdot", new Vaihtoehto());
+		return "lisaavaihtoehto";
+	}
+
+	@RequestMapping(value = "/tallennave", method = RequestMethod.POST)
+	public String tallenna(Vaihtoehto vaihtoehto) {
+		veRepository.save(vaihtoehto);
+		return "redirect:kysymyslista";
+	}
+
 	
 	//Rest-rajapinta kaikille vastauksille
 	//Vain Admin
