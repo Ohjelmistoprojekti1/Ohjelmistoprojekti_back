@@ -9,8 +9,12 @@
 	<h1>Lisää vaihtoehto</h1>
 	<div>
 		<form th:object="${vaihtoehto}" th:action="@{../tallennave}" action="#" method="post">
-			<input type="hidden" id="kysymys" th:value="${kysymys}" th:field="*{kysymys}" />
-			<label for="teksti">Teksti</label>
+			<label for="qlist">Question: </label> <select id="qlist"
+				th:field="*{kysymys}" class="form-control">
+				<option th:each="kysymys: ${kysymyses}"
+					th:value="${kysymys.kysymysId}" th:text="${kysymys.question}"></option>
+			</select>
+			<label for="teksti">Vaihtoehdon teksti: </label>
 			<input type="text" id="teksti" th:field="*{teksti}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<div style="clear: both; display: block; height: 10px;"></div>
