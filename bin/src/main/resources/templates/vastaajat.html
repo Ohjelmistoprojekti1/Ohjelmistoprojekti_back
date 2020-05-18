@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vastaajat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<h1>Vastaajat</h1>
+	
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Kirjaudu ulos" class="btn btn-danger"/>
+	</form></br>
+	
+    <table class="table table-striped">
+    <thead>
+		<tr>
+		    <th>Vastaaja</th>
+		    <th>Sähköposti</th>
+		    <th>Vastaukset</th>
+		</tr>
+	</thead>
+	<tbody>
+    	<tr th:each = "vastaaja, status : ${vastaajat}">
+    		<td th:text = "'Vastaaja ' + ${status.index+1}"></td>
+    		<td th:text = "${vastaaja.email}"></td> 
+    		<td> <a href="vastauksetPerVastaaja.html" 
+         			th:href="@{/vastaukset/vastaaja/{id}(id=${vastaaja.vastaajaId})}" 
+         			th:if="${not #lists.isEmpty(vastaaja.answers)}">vastaukset
+         		</a>
+         	</td>
+    	</tr>
+    </tbody>  
+     </table> 
+     
+
+     <a href="/kysymyslista" class="btn btn-success">Kysymykset</a> 
+
+</body>
+</html>

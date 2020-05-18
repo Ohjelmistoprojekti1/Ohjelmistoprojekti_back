@@ -19,6 +19,7 @@
 				<th>Tyyppi</th>
 				<th>Vaihtoehdot</th>
 				<th>Vastaukset</th>
+				<th>Lisää vaihtoehto</th>
 				<th />
 				<th />
 			</tr>
@@ -30,6 +31,8 @@
 				<td th:text="${kysymys.type}"></td>
 				<td th:text="${kysymys.vaihtoehdot}"></td>
 				<td><a th:href="@{/vastaukset/kysymys/{id}(id=${kysymys.id})}">vastaukset</a></td>
+				<td><a th:href="@{/lisaave/{id}(id=${kysymys.id})}"
+					class="btn btn-primary">+</a></td>
 				<td><a th:href="@{/poista/{id}(id=${kysymys.id})}"
 					class="btn btn-danger">Poista</a></td>
 				<td><a th:href="@{/muokkaa/{id}(id=${kysymys.id})}"

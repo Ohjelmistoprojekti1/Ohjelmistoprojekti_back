@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lisää vaihtoehto</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<h1>Lisää vaihtoehto</h1>
+	<div>
+		<form th:object="${vaihtoehto}" th:action="@{tallennave}" action="#" method="post">
+			<input type="hidden" id="kysymys" th:value="${kysymys.kysymysId}" th:field="*{kysymys}" />
+			<label for="teksti">Teksti</label>
+			<input type="text" id="teksti" th:field="*{teksti}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Tallenna" class="btn btn-success"></input>
+		</form>
+	</div>
+</body>
+</html>
