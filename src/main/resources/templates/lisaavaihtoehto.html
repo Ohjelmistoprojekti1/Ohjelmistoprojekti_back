@@ -9,7 +9,7 @@
 	<h1>Lisää vaihtoehto</h1>
 	<div>
 		<form th:object="${vaihtoehto}" th:action="@{../tallennave}" action="#" method="post">
-			<input type="hidden" id="kysymys" th:value="${kysymys.getId()}" th:field="*{kysymys}" />
+			<input type="hidden" id="kysymys" th:value="${kysymys}" th:field="*{kysymys}" />
 			<label for="teksti">Teksti</label>
 			<input type="text" id="teksti" th:field="*{teksti}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
