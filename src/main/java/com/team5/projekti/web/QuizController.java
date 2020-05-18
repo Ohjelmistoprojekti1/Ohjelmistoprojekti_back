@@ -85,7 +85,7 @@ public class QuizController {
 	// Lisää vaihtoehto admin
 	// @PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/lisaave/{id}")
-	public String addVaihtoehto(@PathVariable("id") Long questionId, Model model) {
+	public String addVaihtoehto(@PathVariable("id") Long kysymysId, Model model) {
 		model.addAttribute("kysymyses", qRepository.findAll());
 		model.addAttribute("vaihtoehto", new Vaihtoehto());
 		return "lisaavaihtoehto";

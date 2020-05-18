@@ -30,12 +30,12 @@
 				<td th:text="${kysymys.question}"></td>
 				<td th:text="${kysymys.type}"></td>
 				<td th:text="${kysymys.vaihtoehdot}"></td>
-				<td><a th:href="@{/vastaukset/kysymys/{id}(id=${kysymys.id})}">vastaukset</a></td>
-				<td><a th:href="@{/lisaave/{id}(id=${kysymys.id})}"
+				<td><a th:href="@{/vastaukset/kysymys/{id}(id=${kysymys.kysymysId})}">vastaukset</a></td>
+				<td><a th:href="@{/lisaave/{id}(id=${kysymys.kysymysId})}"
 					class="btn btn-primary">+</a></td>
-				<td><a th:href="@{/poista/{id}(id=${kysymys.id})}"
+				<td><a th:href="@{/poista/{id}(id=${kysymys.kysymysId})}"
 					class="btn btn-danger">Poista</a></td>
-				<td><a th:href="@{/muokkaa/{id}(id=${kysymys.id})}"
+				<td><a th:href="@{/muokkaa/{id}(id=${kysymys.kysymysId})}"
 					class="btn btn-primary">Muokkaa</a></td>
 			</tr>
 		</tbody>
