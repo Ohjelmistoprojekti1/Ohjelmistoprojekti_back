@@ -3,12 +3,12 @@
 <head>
     <title>Lisää vaihtoehto</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 	<h1>Lisää vaihtoehto</h1>
 	<div>
-		<form th:object="${vaihtoehto}" th:action="@{tallennave}" action="#" method="post">
+		<form th:object="${vaihtoehto}" th:action="@{..tallennave}" action="#" method="post">
 			<input type="hidden" id="kysymys" th:value="${kysymys.getId()}" th:field="*{kysymys}" />
 			<label for="teksti">Teksti</label>
 			<input type="text" id="teksti" th:field="*{teksti}" />
