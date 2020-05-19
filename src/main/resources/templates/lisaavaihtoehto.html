@@ -11,8 +11,8 @@
 		<form th:object="${vaihtoehto}" th:action="@{../tallennave}" action="#" method="post">
 			<label for="qlist">Question: </label> <select id="qlist"
 				th:field="*{kysymys}" class="form-control">
-				<option th:each="kysymys: ${kysymyses}"
-					th:value="${kysymys.kysymysId}" th:text="${kysymys.question}"></option>
+				<option
+					th:value="${valittuKysymys.kysymysId}" th:text="${valittuKysymys.question}"></option>
 			</select>
 			<label for="teksti">Vaihtoehdon teksti: </label>
 			<input type="text" id="teksti" th:field="*{teksti}" />
