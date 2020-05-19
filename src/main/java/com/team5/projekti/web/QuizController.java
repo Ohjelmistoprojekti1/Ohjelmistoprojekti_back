@@ -112,7 +112,6 @@ public class QuizController {
 	@RequestMapping(value = "/muokkaa/{id}", method = RequestMethod.GET)
 	public String muokkaaKysymys(@PathVariable("id") Long kysymysId, Model model) {
 		model.addAttribute("kysymys", qRepository.findById(kysymysId));
-		model.addAttribute("vaihtoehdot", veRepository.findAll());
 		return "muokkaakysymys";
 	}
 	
