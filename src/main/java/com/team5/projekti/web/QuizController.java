@@ -33,7 +33,7 @@ public class QuizController {
 		return "login";
 	}
 	
-	@RequestMapping(value= {"/index", "/"})
+	@RequestMapping(value= {"/index"})
 	public String index() {
 		return "index";
 	}
@@ -41,7 +41,7 @@ public class QuizController {
 	
 	//Vain admin
 	//@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value= {"/adminpage"})
+	@RequestMapping(value= {"/adminpage", "/"})
 	public String adminpage() {
 		return "adminpage";
 	}
