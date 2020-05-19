@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vastaukset/Kysymys</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="~/css/bootstrap.min.css" th:href="@{~/css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<h1>Vastaukset/Kysymys</h1>
+	
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Kirjaudu ulos" class="btn btn-danger"/>
+	</form></br>
+	
+	<table class="table table-striped">
+  	<thead>
+  		<tr>
+  		<th>Kysymys</th>
+  		<span th:each = "vastaus, status : ${kysymys.answers}">
+    		<th th:text= "'Vastaus ' + ${status.index+1}">></th>
+    	<span/>
+    	<tr/>
+  	</thead>
+  	<tbody>
+  	<tr>
+  		<td th:text="${kysymys.question}"></td>
+  		<span th:each = "vastaus : ${kysymys.answers}">
+    		<td th:text = "${vastaus.answer}"></span>
+    	<span/>
+    <tr/>
+    	
+  	</tbody>
+	</table> 
+     
+
+     <a href="/kysymyslista" class="btn btn-success">Kysymykset</a> 
+
+</body>
+</html>

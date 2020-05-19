@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vastaukset/Vastaaja</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="~/css/bootstrap.min.css" th:href="@{~/css/bootstrap.min.css}" />
+</head>
+
+<body>
+	<h1>Vastaukset/Vastaaja</h1>
+	
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Kirjaudu ulos" class="btn btn-danger"/>
+	</form></br>
+	
+  	<table class="table table-striped">
+  	<thead>
+  		<tr>
+  		<th>Vastaaja</th>
+  		<span th:each = "kysymys : ${kysymykset}">
+    		<th th:text = "${kysymys.question}"></th>
+    	</span>
+    	<tr/>
+  	</thead>
+  	<tbody>
+  	<tr>
+  		<td th:text="${vastaaja.email}"></td>
+  		<span th:each = "vastaus : ${vastaaja.answers}">
+    		<td th:text = "${vastaus.answer}"></td>
+    	<span/>
+    	
+    </tr>
+  	</tbody>
+	</table>
+     
+
+     <a href="/vastaajat" class="btn btn-success">Vastaajat</a> 
+
+</body>
+</html>

@@ -36,13 +36,12 @@ public class Kysymys {
 
 	}
 
-
-	public Long getId() {
+	public Long getKysymysId() {
 		return kysymysId;
 	}
 
-	public void setId(Long id) {
-		this.kysymysId = id;
+	public void setKysymysId(Long kysymysId) {
+		this.kysymysId = kysymysId;
 	}
 
 	public String getQuestion() {
